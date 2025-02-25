@@ -3,7 +3,7 @@ import Logo from "./navbarElements/Logo"
 import Redirect from './navbarElements/Redirect'
 import Search from './navbarElements/Search'
 import LoginRegisterBtn from './navbarElements/LoginRegisterBtn'
-import Menu from './navbarElements/Menu'
+
 import AuthState from './AuthState'
 export default function Navbar() {
   return (
@@ -12,7 +12,7 @@ export default function Navbar() {
       <Redirect/>
       <Search/>
       <AuthState/>
-      
+
     </div>
   )
 }

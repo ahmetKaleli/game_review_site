@@ -1,10 +1,10 @@
 import React from 'react'
-import AuthState from "../components/AuthState"
+import GameList from "../components/GameList"
 
 export default function Home() {
   return (
     <div>
-      Home
+      <GameList/>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from '@mui/material'
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword ,signOut } from "firebase/auth";
 import { auth } from "../services/Firebase"
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -25,6 +25,7 @@ export default function Register() {
       }
       if (user) {
         dispatch(setRegister(payload))
+        await signOut(auth);
         toast.success("User created successfully")
         setEmail('')
         setPassword('')

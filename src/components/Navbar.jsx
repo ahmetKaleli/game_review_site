@@ -10,7 +10,7 @@ export default function Navbar() {
     <div className='flex flex-row items-center justify-between h-[100px] bg-[rgba(44,43,43,0.12)] p-4 shadow-2xl'>
       <Logo/>
       <Redirect/>
-      <Search/>
+      {/* <Search/> */}
       <AuthState/>
 
     </div>

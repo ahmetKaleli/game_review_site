@@ -4,7 +4,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 export default function Footer() {
   return (
-    <div>
+    <div >
       <div className="bg-gray-900 text-white py-12 mt-8">
       <div className='grid grid-cols-1 md:grid-cols-3 pl-10 gap-10 text-center md:text-left container mx-auto'>
         <div >

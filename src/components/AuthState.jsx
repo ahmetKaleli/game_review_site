@@ -62,9 +62,9 @@ export default function AuthState() {
 
           </div> :
           <div>
-            <div className='hidden sm:flex' >
-              <Button variant='contained' color='success' onClick={() => navigate("/login")}> <LoginIcon sx={{marginRight:1}} />Login</Button>
-              <Button variant='contained' sx={{ marginLeft: 5}} onClick={() => navigate("/register")}> <HowToRegIcon  sx={{marginRight:1}} /> Register</Button>
+            <div className="flex flex-col sm:flex-row sm:space-x-5 items-center space-y-3 sm:space-y-0"  >
+              <Button  className="w-3/4 sm:w-1/2 text-sm sm:text-base" variant='contained' color='success' onClick={() => navigate("/login")}> <LoginIcon sx={{marginRight:1}} />Login</Button>
+              <Button className='w-full sm:w-auto text-sm sm:text-base' variant='contained' sx={{ marginLeft: 5}} onClick={() => navigate("/register")}> <HowToRegIcon  sx={{marginRight:1}} /> Register</Button>
 
             </div>
           </div>

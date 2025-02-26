@@ -5,6 +5,8 @@ import { db } from '../../services/Firebase'
 
 const initialState = {
     games: [],
+
+    selectedGame: null,
 }
 
 export const getGames = createAsyncThunk("fullgames", async () => {
@@ -36,9 +38,9 @@ export const gameSlice = createSlice({
         getGameDetail: (state, action) => {
             const game = state.games.find((game) => game.id === action.payload.id)
             if (game) {
-                state.selecedGame = gameDetail
+                state.selectedGame = game
             } else {
-                state.selecedGame = null
+                state.selectedGame = null
             }
         }
     },

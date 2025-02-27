@@ -1,27 +1,31 @@
 import { Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createComment } from '../redux/slices/commentSlice';
+import { addComment } from '../redux/slices/commentSlice';
 import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
 
 export default function Comment() {
   const [text, setText] = useState('');
   const dispatch = useDispatch()
-  const {user}= useSelector((store)=>store.comment)
-  const {id} = useParams()
+  const { user } = useSelector((store) => store.comment)
+  const { id: gameID } = useParams()
 
-  const payload = {
-    text,
-    user: user?.email
-  }
+  const handleSubmit = () => {
+    if (!text.trim()) return toast.error('Comment cannot be empty');
+    if (!user) return toast.error('You must be logged in to comment');
 
-  const handleSubmit = ()=>{
-    if(!text) return toast.error('Comment cannot be empty')
-    if(!user) return toast.error('You must be logged in to comment')
-    dispatch(createComment(payload))
-    setText('')
-  }
+    dispatch(
+      addComment({
+        gameID,
+        userEmail: user.email,
+        text,
+      })
+    );
+
+    setText('');
+  };
+
 
   return (
     <div>

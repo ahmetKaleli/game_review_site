@@ -1,19 +1,27 @@
-import {  createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    comments:[]
-}
+    comments: [],
+    user: null,
+    gameID: null,
+};
+
 
 export const commentSlice = createSlice({
-    name: "comment",
+    name: 'comment',
     initialState,
     reducers: {
-        createComment: (state, action)=>{
-            state.comments=[...state.comments, action.payload]
+        setUser: (state, action) => {
+            state.user = action.payload;
+        },
+        createComment : (state, action) => {
+            state.comments=[...state.comments,action.payload]
+            state.gameID=action.payload.gameID
+
         }
-    }
-})
+    },
+});
 
-export const {createComment } = commentSlice.actions
+export const {setUser,createComment } = commentSlice.actions;
 
-export default commentSlice.reducer
+export default commentSlice.reducer;

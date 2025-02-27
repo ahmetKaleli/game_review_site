@@ -9,26 +9,35 @@ import HowToRegIcon from '@mui/icons-material/HowToReg';
 import { useNavigate } from 'react-router-dom';
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
 import { Menu, MenuItem } from '@mui/material';
+import {useDispatch} from "react-redux"
+import {setUser} from "../redux/slices/commentSlice"
+
 
 export default function AuthState() {
   const [userEmail, setUserEmail] = useState(null)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+
   useEffect(() => {
     const authState = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUserEmail(user.email)
+        dispatch(setUser(user))
       } else {
         setUserEmail(null)
+        dispatch(setUser(null))
       }
     })
     return () => authState()
-  }, [])
+  }, [dispatch])
 
   const handleLogout = () => {
     if (userEmail) {
       auth.signOut()
       toast.success("User logged out")
       setUserEmail(null)
+      dispatch(setUser(null))
       navigate("/")
     }
 

@@ -1,4 +1,4 @@
-<h1>Game Rewiew Site</h1>
+<h1>Game Review Site</h1>
 <h3>About the project</h3>
 <p>This project aims to create a game review platform where users can comment on games. Using React, Redux, Firebase, MUI the goal is to develop an efficient system with a modern, user-friendly interface.</p>
 <hr><br>
